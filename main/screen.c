@@ -765,7 +765,7 @@ static void lvgl_touch_init(void)
         },
         .interface_type = TOUCH_PANEL_IFACE_I2C,
         .pin_num_int = -1,
-        .direction = TOUCH_DIR_BTLR,
+        .direction = TOUCH_DIR_LRTB,
         .width = 480,
         .height = 480,
     };
