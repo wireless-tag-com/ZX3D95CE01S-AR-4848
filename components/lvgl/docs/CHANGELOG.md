@@ -1,5 +1,104 @@
 # Changelog
 
+## [v8.3.6](https://github.com/lvgl/lvgl/compare/v8.3.6...v8.3.5) 3 April 2023
+
+### New Features
+
+- feat(msg): add lv_msg_unsubcribe_obj [`6af0179`](https://github.com/lvgl/lvgl/commit/6af01798d82f90f0c2ba6a9da39c4f10fb427df7)
+
+### Performance
+
+### Fixes
+
+- fix(group): fix default_group becomes wild pointer when deleted [`4076`](https://github.com/lvgl/lvgl/pull/4076)
+- fix(fs_posix): allow creating new file and set permission. [`3976`](https://github.com/lvgl/lvgl/pull/3976)
+- fix(img): support negative angles [`3846`](https://github.com/lvgl/lvgl/pull/3846)
+- fix(gif): synchronize with master [`4003`](https://github.com/lvgl/lvgl/pull/4003)
+- fix(gpu): fix STM GPU drivers for some variants [`4004`](https://github.com/lvgl/lvgl/pull/4004)
+- fix(img): possible divide by 0 exception (lvgl#3988) [`3990`](https://github.com/lvgl/lvgl/pull/3990)
+- fix(arc): fix knob area invalidation [`d0e19eb`](https://github.com/lvgl/lvgl/commit/d0e19eb2d38ba8a500399b0496d7a8363be4003e)
+- fix(slider): consider animations on pressing [`0b7777f`](https://github.com/lvgl/lvgl/commit/0b7777f27a7932efe3d594be426e1beb59d80ae3)
+- fix(bar): delete running animations when a new value is set without animation [`aa31380`](https://github.com/lvgl/lvgl/commit/aa313806d0ebde475fc2bc360a15172cc1b658a7)
+- docs: use a fixed commit of lv_web_emscripten [`501230e`](https://github.com/lvgl/lvgl/commit/501230e0fc95936199b3187d350873c3bb4a94e4)
+
+### Examples
+
+### Docs
+
+- docs(arduino): add note to not use lv_examles library [`2f294aa`](https://github.com/lvgl/lvgl/commit/2f294aa76c8fece98a4fa72304bc6f267ed2a228)
+- docs: use a fixed commit of lv_web_emscripten [`501230e`](https://github.com/lvgl/lvgl/commit/501230e0fc95936199b3187d350873c3bb4a94e4)
+
+### CI and tests
+
+### Others
+
+- chore(cmsis-pack): update cmsis-pack for v8.3.6 [`4108`](https://github.com/lvgl/lvgl/pull/4108)
+- chore: update the version numbers to v8.3.5-dev [`77670fb`](https://github.com/lvgl/lvgl/commit/77670fb1a55e0f2012ff7a057e535830e7253e22)
+- Update build_html_examples.sh [`399069b`](https://github.com/lvgl/lvgl/commit/399069b4a2423c11823581668fe71ce9a7c88e7d)
+
+
+## [v8.3.5](https://github.com/lvgl/lvgl/compare/v8.3.4...v8.3.5) 7 February 2023
+
+### Performance
+
+- perf(gpu): improve NXP's PXP and VGLite accelerators [`3952`](https://github.com/lvgl/lvgl/pull/3952)
+- perf(dam2d): rework stm32 dma2d  [`3904`](https://github.com/lvgl/lvgl/pull/3904)
+
+### Fixes
+
+- fix(monkey): remove executable permissions from source files [`3971`](https://github.com/lvgl/lvgl/pull/3971)
+- fix(ci): set Ubuntu version for MicroPython test [`3865`](https://github.com/lvgl/lvgl/pull/3865)
+- fix(Kconfig): fix wrong type of LV_FS_STDIO_CACHE_SIZE (v8.3) [`3906`](https://github.com/lvgl/lvgl/pull/3906)
+- docs(indev): fix the name of long_press_repeat_time (was long_press_rep_time) [`34c545e`](https://github.com/lvgl/lvgl/commit/34c545ef19dc97c8952a412e533a4cd3924b9fbc)
+- fix(roller): consider the recolor setting of the label [`39f4247`](https://github.com/lvgl/lvgl/commit/39f424767fa57376c4cb08cf22951fd56d854fd6)
+
+### Examples
+
+### Docs
+
+- docs(indev): fix the name of long_press_repeat_time (was long_press_rep_time) [`34c545e`](https://github.com/lvgl/lvgl/commit/34c545ef19dc97c8952a412e533a4cd3924b9fbc)
+
+### CI and tests
+
+- ci(esp): fix push to the component registry on tag [`e529230`](https://github.com/lvgl/lvgl/commit/e529230f4bb97b4506c430aac96d5ddaef685dc4)
+
+### Others
+
+- chore(cmsis-pack): update cmsis-pack for v8.3.5 [`3972`](https://github.com/lvgl/lvgl/pull/3972)
+- chore: add an option to "LV_TICK_CUSTOM" [`3879`](https://github.com/lvgl/lvgl/pull/3879)
+
+- bump version numbers to v8.3.5-dev [`47c8f8f`](https://github.com/lvgl/lvgl/commit/47c8f8f9822f4c0c0ffbe2f12b380bddefcec475)
+- Update layer.md [`9faca8a`](https://github.com/lvgl/lvgl/commit/9faca8a8d4125e21dedbf6e46aa1586a6b57e5b8)
+
+## [v8.3.4](https://github.com/lvgl/lvgl/compare/v8.3.4...v8.3.3) 15 December 2022
+
+### New Features
+
+- feat(keyboard): ported arabic keyboard from release 7.10.0 [`3728`](https://github.com/lvgl/lvgl/pull/3728)
+- feat(table): scroll to the selected cell with key navigation [`39d03a8`](https://github.com/lvgl/lvgl/commit/39d03a80f45847a1977cfe9cc6a509b1613d0aca)
+
+### Fixes
+
+- fix(rt-thread): sync rt-thread v5.0.0 rt_align [`3864`](https://github.com/lvgl/lvgl/pull/3864)
+- fix(draw): SDL2 gradient support  #3848 [`3856`](https://github.com/lvgl/lvgl/pull/3856)
+- fix(esp.cmake): add demos and examples [`3784`](https://github.com/lvgl/lvgl/pull/3784)
+- fix(indev): fix scrolling on transformed obejcts [`84cf05d`](https://github.com/lvgl/lvgl/commit/84cf05d8b23b31e000db757a278545e58fcbcbe8)
+- fix(style): add the missing support for pct pivot in tranasform style properties [`c8e584f`](https://github.com/lvgl/lvgl/commit/c8e584f879a1e1427e7a8f5ff496af39f17df41d)
+- fix(flex): be sure obj-&gt;w_layout and h_layout can't be set at the same time [`c4c4007`](https://github.com/lvgl/lvgl/commit/c4c400716e80a279e7b3d43b8992915fe94441eb)
+- fix(chart): fix very dense bar charts [`bb2c2ac`](https://github.com/lvgl/lvgl/commit/bb2c2ac34ac943978513c7ed51885078979b1c10)
+- fix(draw): handle LV_COLOR_DEPTH == 1 too in lv_draw_sw_transform [`bd11ad8`](https://github.com/lvgl/lvgl/commit/bd11ad8542eac9ff51420e5afb80f7e6fcf36a5c)
+- fix(example): fix warnings [`1e3ca25`](https://github.com/lvgl/lvgl/commit/1e3ca25fed13bbf85c32a60d4b7041cf8bd525ab)
+- fix(benchmark): fix warnings [`1ed026c`](https://github.com/lvgl/lvgl/commit/1ed026ca7307957568fe419f1ff39a15b2535b3e)
+- fix(draw): fix text color with sub pixel rendering and BGR order [`e050f5c`](https://github.com/lvgl/lvgl/commit/e050f5ca156f79d752894f38f0a437c946205cb4)
+- fix(meter): fix setting part_draw_dsc.id in needle img drawing [`716e5e2`](https://github.com/lvgl/lvgl/commit/716e5e2c8bd2a22e7d56e8d7ca33054a11a1f4ed)
+- fix(gridnav): fix stucking in pressed state with encoder [`ad56dfa`](https://github.com/lvgl/lvgl/commit/ad56dfaf7046a9bb8c05e877a8c8852cd14a59af)
+- fix(darw): add back the disappeared antialising=0 support [`2c17b28`](https://github.com/lvgl/lvgl/commit/2c17b28ac476c95a4153ab6cabb77b1c7208bb74)
+- fix(msg): fix typos in API by adding wrappers [`41fa416`](https://github.com/lvgl/lvgl/commit/41fa41613455260ccdeb87ecb890ce026ff0a435)
+- fix(draw): fix transformation accuracy [`e06f03d`](https://github.com/lvgl/lvgl/commit/e06f03db72f98439078118518158f52439dd7bf8)
+- fix(style): remove the reduntant define of LV_GRADIENT_MAX_STOPS [`903e94b`](https://github.com/lvgl/lvgl/commit/903e94b716ca1b32cdb51de11df679953699e53b)
+- demo(benchmark): fix lv_label_set_text_fmt format strings [`ae38258`](https://github.com/lvgl/lvgl/commit/ae3825871e31cd42cad2f310bdfc605150670511)
+- demo(benchmark): fix warning [`1173dcb`](https://github.com/lvgl/lvgl/commit/1173dcba96621e20c9a7240c8572bd6573bce6a0)
+
 ## [v8.3.3](https://github.com/lvgl/lvgl/compare/v8.3.2...v8.3.3) 06 October 2022
 
 v8.3.3 is the same as v8.3.2. It was released only because the version number was set incorrectly in lvgl.h.
