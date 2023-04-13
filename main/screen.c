@@ -57,10 +57,10 @@ void qmsd_rgb_init(esp_lcd_rgb_panel_config_t *panel_config)
     ESP_ERROR_CHECK(esp_lcd_panel_reset(g_panel_handle));
     ESP_ERROR_CHECK(esp_lcd_panel_init(g_panel_handle));
 
-    ESP_LOGI(TAG, "Use frame buffers as LVGL draw buffers");
-    ESP_ERROR_CHECK(esp_lcd_rgb_panel_get_frame_buffer(g_panel_handle, 2, &buf1, &buf2));
-    // initialize LVGL draw buffers
-    lv_disp_draw_buf_init(&draw_buf, buf1, buf2, 480 * 480);
+    buffer_size = 480 * 480;
+    buf1 = heap_caps_malloc(buffer_size * sizeof(lv_color_t), MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);
+    buf2 = heap_caps_malloc(buffer_size * sizeof(lv_color_t), MALLOC_CAP_SPIRAM | MALLOC_CAP_8BIT);
+    lv_disp_draw_buf_init(&draw_buf, buf1, buf2, buffer_size);
 
     lv_disp_drv_init(&disp_drv);         
     disp_drv.flush_cb = __qsmd_rgb_disp_flush;
@@ -810,7 +810,7 @@ void screen_init(void) {
             .vsync_front_porch = 8,
         },
         .flags.fb_in_psram = 1,
-        .flags.double_fb = 1,
+        .flags.double_fb = 0,
         .flags.refresh_on_demand = 0,   // Mannually control refresh operation
         .bounce_buffer_size_px = 0,
         .clk_src = LCD_CLK_SRC_PLL160M,

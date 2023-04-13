@@ -28,7 +28,7 @@
 #define RGB_R1      (17)  // R1
 #define RGB_R2      (16)   // R2
 #define RGB_R3      (1)  // R3
-#define RGB_R4      (5)  // R4
+#define RGB_R4      (15)  // R4
 
 #define LCD_DATA0_GPIO    (RGB_B0)   // B0
 #define LCD_DATA1_GPIO    (RGB_B1)   // B1
