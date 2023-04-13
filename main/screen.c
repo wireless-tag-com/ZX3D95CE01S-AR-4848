@@ -26,11 +26,6 @@
 
 #define TAG "RGB"
 
-#define ECO_O(y) (y>0)? -1:1
-#define ECO_STEP(x) x? ECO_O(x):0
-
-#define RGB_DOUBLE_FB	0
-
 static touch_panel_driver_t g_touch;
 
 static esp_lcd_panel_handle_t g_panel_handle = NULL;
@@ -62,25 +57,17 @@ void qmsd_rgb_init(esp_lcd_rgb_panel_config_t *panel_config)
     ESP_ERROR_CHECK(esp_lcd_panel_reset(g_panel_handle));
     ESP_ERROR_CHECK(esp_lcd_panel_init(g_panel_handle));
 
-#if RGB_DOUBLE_FB
     ESP_LOGI(TAG, "Use frame buffers as LVGL draw buffers");
     ESP_ERROR_CHECK(esp_lcd_rgb_panel_get_frame_buffer(g_panel_handle, 2, &buf1, &buf2));
     // initialize LVGL draw buffers
     lv_disp_draw_buf_init(&draw_buf, buf1, buf2, 480 * 480);
-#else
-    buffer_size = 480 * 40;
-	buf1 = heap_caps_malloc(buffer_size * 2, MALLOC_CAP_DMA);
-    lv_disp_draw_buf_init(&draw_buf, buf1, buf2, buffer_size);
-#endif
 
     lv_disp_drv_init(&disp_drv);         
     disp_drv.flush_cb = __qsmd_rgb_disp_flush;
     disp_drv.draw_buf = &draw_buf;
     disp_drv.hor_res = panel_config->timings.h_res;
     disp_drv.ver_res = panel_config->timings.v_res;
-#if RGB_DOUBLE_FB
     disp_drv.full_refresh = true; // the full_refresh mode can maintain the synchronization between the two frame buffers
-#endif
     lv_disp_drv_register(&disp_drv);
 
     lvgl_touch_init();
@@ -823,11 +810,7 @@ void screen_init(void) {
             .vsync_front_porch = 8,
         },
         .flags.fb_in_psram = 1,
-#if RGB_DOUBLE_FB
         .flags.double_fb = 1,
-#else
-		.flags.double_fb = 0,
-#endif
         .flags.refresh_on_demand = 0,   // Mannually control refresh operation
         .bounce_buffer_size_px = 0,
         .clk_src = LCD_CLK_SRC_PLL160M,

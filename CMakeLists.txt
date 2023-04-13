@@ -3,4 +3,4 @@
 cmake_minimum_required(VERSION 3.5)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
-project(ZX2D10GE01R)
+project(ZX3D95CE01S-AR-4848)
